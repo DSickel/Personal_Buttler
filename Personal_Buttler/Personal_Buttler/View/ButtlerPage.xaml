@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Personal_Buttler.ViewModel;assembly=Personal_Buttler"
+             x:Class="Personal_Buttler.View.ButtlerPage"
+             Title="Personal Buttler Page">
+
+  <ContentPage.BindingContext>
+    <vm:ButtlerPageViewModel/>
+  </ContentPage.BindingContext>
+
+  <Label Text="Welcome to your personal Buttler" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout Margin="15,10,10,10">
+    <Image Source="icon.png"/>
+    <Image.GestureRecognizers>
+      <TapGestureRecognizer Command="{Binding OnSpeechInput_Clicked}" />
+    </Image.GestureRecognizers>
+
+    <Label Text="{Binding Text}" FontSize="15" />
+
+    <Label Text ="Wetterlage"/>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Wetterbedingung: " />
+      <Label Text ="{Binding Weather.weather.Main}" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">    
+      <Label Text ="Beschreibung: " />
+      <Label Text ="{Binding Weather.weather.Description}" />
+    </StackLayout>
+
+    <Label Text ="Temperatur"/>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Tagestemperatur: " />
+      <Label Text ="{Binding Weather.Main.Temp}" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Maximal Temperatur: " />
+      <Label Text ="{Binding Weather.Main.Temp_max}" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Minimal Temperatur: " />
+      <Label Text ="{Binding Weather.Main.Temp_min}" />
+    </StackLayout>
+
+    <Label Text ="Wind"/>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Windrichtung: " />
+      <Label Text ="{Binding Weather.Wind.Deg}" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Windgeschwindigkeit: " />
+      <Label Text ="{Binding Weather.Wind.Speed}" />
+    </StackLayout>
+
+    <Label Text ="Sonne"/>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Sunrise: " />
+      <Label Text ="{Binding Weather.Sunrise}" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal">
+      <Label Text ="Sunset: " />
+      <Label Text ="{Binding Weather.Sunset}" />
+    </StackLayout>
+    
+  </StackLayout>
+</ContentPage>
